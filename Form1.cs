@@ -1,17 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace lab11
 {
     public partial class Form1 : Form
     {
+
         private BindingList<IShape> shapes;
 
         public Form1()
@@ -20,8 +15,6 @@ namespace lab11
             InitializeComponent();
             Shapes_list.DataSource = shapes;
         }
-
-        Shape shape;
 
         private void Add_Quadrilateral_btn_Click(object sender, EventArgs e)
         {
@@ -75,11 +68,11 @@ namespace lab11
             {
                 _shapes[i] = Shapes_list.Items[i] as IShape;
             }
-            
+
             Array.Sort(_shapes);
-            
+
             shapes.Clear();
-            
+
             foreach (IShape shape in _shapes)
             {
                 shapes.Add(shape);
@@ -102,6 +95,5 @@ namespace lab11
                 shapes.Add((IShape)shapes[i].Clone());
             }
         }
-       
     }
 }
